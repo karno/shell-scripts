@@ -1,45 +1,45 @@
 Option Explicit
 
-' uŸàƒSƒVƒbƒN RegularvuŸàƒSƒVƒbƒN Lightv‚ÌƒtƒHƒ“ƒg‚ğuŸàƒSƒVƒbƒN Mediumv‚ÌƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹‚É·‚µ‘Ö‚¦‚Ä
-' Windows ŠÂ‹«‚ÌŸàƒSƒVƒbƒN‚ğ‘¾‚ß‚É‚·‚éƒXƒNƒŠƒvƒg
+' ã€Œæ¸¸ã‚´ã‚·ãƒƒã‚¯ Regularã€ã€Œæ¸¸ã‚´ã‚·ãƒƒã‚¯ Lightã€ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’ã€Œæ¸¸ã‚´ã‚·ãƒƒã‚¯ Mediumã€ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«å·®ã—æ›¿ãˆã¦
+' Windows ç’°å¢ƒã®æ¸¸ã‚´ã‚·ãƒƒã‚¯ã‚’å¤ªã‚ã«ã™ã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 ' 
-' - uŸàƒSƒVƒbƒN Mediumv‚ÌƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹‚ğƒRƒs[‚µ‚Ä—pˆÓ‚µ‚ÄƒŒƒWƒXƒgƒŠ‚ğ‘‚«Š·‚¦‚Ü‚·
-' - ÀsŒãAˆê“xƒTƒCƒ“ƒAƒEƒg‚µ‚ÄÄ“xƒTƒCƒ“ƒCƒ“‚·‚é‚Æ•ÏX‚ª”½‰f‚³‚ê‚Ü‚·
-' - ŠÇ—ÒŒ ŒÀ‚ª‚È‚¢‚Æ WScript.Shell ‚Ì regWrite ŠÖ”‚ÅuƒŒƒWƒXƒgƒŠ ƒL[ "c" ‚Ìƒ‹[ƒg‚ª–³Œø‚Å‚·BvƒGƒ‰[‚ªo‚é‚Ì‚Å
-'   ŠÇ—ÒŒ ŒÀ‚ÅŠJ‚¢‚½ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚æ‚è `cscript ForceYuGothicMedium.vbs` ‚ÆÀs‚µ‚Ä‚­‚¾‚³‚¢
+' - ã€Œæ¸¸ã‚´ã‚·ãƒƒã‚¯ Mediumã€ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ç”¨æ„ã—ã¦ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã‚’æ›¸ãæ›ãˆã¾ã™
+' - å®Ÿè¡Œå¾Œã€ä¸€åº¦ã‚µã‚¤ãƒ³ã‚¢ã‚¦ãƒˆã—ã¦å†åº¦ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã™ã‚‹ã¨å¤‰æ›´ãŒåæ˜ ã•ã‚Œã¾ã™
+' - ç®¡ç†è€…æ¨©é™ãŒãªã„ã¨ WScript.Shell ã® regWrite é–¢æ•°ã§ã€Œãƒ¬ã‚¸ã‚¹ãƒˆãƒª ã‚­ãƒ¼ "â€¦" ã®ãƒ«ãƒ¼ãƒˆãŒç„¡åŠ¹ã§ã™ã€‚ã€ã‚¨ãƒ©ãƒ¼ãŒå‡ºã‚‹ã®ã§
+'   ç®¡ç†è€…æ¨©é™ã§é–‹ã„ãŸã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚ˆã‚Š `cscript ForceYuGothicMedium.vbs` ã¨å®Ÿè¡Œã—ã¦ãã ã•ã„
 
-' Object ‚Ì—pˆÓ
+' Object ã®ç”¨æ„
 Dim shell : Set shell = WScript.CreateObject("WScript.Shell")
 Dim fs    : Set fs    = WScript.CreateObject("Scripting.FileSystemObject")
 
-' ƒŒƒWƒXƒgƒŠƒL[‚ÌéŒ¾
+' ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã‚­ãƒ¼ã®å®£è¨€
 Dim fontsKey           : fontsKey           = "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts\"
 Dim yuGothicRegularKey : yuGothicRegularKey = fontsKey & "Yu Gothic Regular & Yu Gothic UI Semilight (TrueType)"
 Dim yuGothicLightKey   : yuGothicLightKey   = fontsKey & "Yu Gothic Light & Yu Gothic UI Light (TrueType)"
 
-' •ÏX‘O‚ÌƒŒƒWƒXƒgƒŠ’l‚ğ“Ç‚ñ‚Å‚¨‚­
+' å¤‰æ›´å‰ã®ãƒ¬ã‚¸ã‚¹ãƒˆãƒªå€¤ã‚’èª­ã‚“ã§ãŠã
 Dim yuGothicRegularValue : yuGothicRegularValue = shell.RegRead(yuGothicRegularKey)
 Dim yuGothicLightValue   : yuGothicLightValue   = shell.RegRead(yuGothicLightKey)
 
-WScript.Echo("•ÏX‘O‚Ì YuGothic Regular ƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹–¼ : " & yuGothicRegularValue)
-WScript.Echo("•ÏX‘O‚Ì YuGothic Light ƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹–¼   : " & yuGothicLightValue)
+WScript.Echo("å¤‰æ›´å‰ã® YuGothic Regular ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å : " & yuGothicRegularValue)
+WScript.Echo("å¤‰æ›´å‰ã® YuGothic Light ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å   : " & yuGothicLightValue)
 
-' YuGothic Medium ƒtƒHƒ“ƒg
-Dim fontsPath          : fontsPath      = "C:\Windows\Fonts\"
-Dim yuGothicMediumFile : yuGothicMedium = "YuGothM.ttc"
-' ˆÈ‰º‚Ìƒtƒ@ƒCƒ‹–¼‚ÅƒRƒs[‚ğ”z’u‚·‚é
+' YuGothic Medium ãƒ•ã‚©ãƒ³ãƒˆ
+Dim fontsPath          : fontsPath          = "C:\Windows\Fonts\"
+Dim yuGothicMediumFile : yuGothicMediumFile = "YuGothM.ttc"
+' ä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«åã§ã‚³ãƒ”ãƒ¼ã‚’é…ç½®ã™ã‚‹
 Dim yuGothicMediumForRegular : yuGothicMediumForRegular = "YuGothM2.ttc"
 Dim yuGothicMediumForLight   : yuGothicMediumForLight   = "YuGothM3.ttc"
 
-' ƒtƒ@ƒCƒ‹ƒRƒs[Às
+' ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼å®Ÿè¡Œ
 On Error Resume Next
 Call fs.CopyFile(fontsPath & yuGothicMediumFile, fontsPath & yuGothicMediumForRegular)
 Call fs.CopyFile(fontsPath & yuGothicMediumFile, fontsPath & yuGothicMediumForLight)
 On Error GoTo 0
-WScript.Echo(yuGothicMediumForRegular & " ƒtƒ@ƒCƒ‹‚ÌƒRƒs[¶¬Š®—¹")
-WScript.Echo(yuGothicMediumForLight   & " ƒtƒ@ƒCƒ‹‚ÌƒRƒs[¶¬Š®—¹")
+WScript.Echo(yuGothicMediumForRegular & " ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼ç”Ÿæˆå®Œäº†")
+WScript.Echo(yuGothicMediumForLight   & " ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼ç”Ÿæˆå®Œäº†")
 
-' ƒŒƒWƒXƒgƒŠ’l‚ğ•ÏX‚·‚é
+' ãƒ¬ã‚¸ã‚¹ãƒˆãƒªå€¤ã‚’å¤‰æ›´ã™ã‚‹
 shell.RegWrite yuGothicRegularKey, yuGothicMediumForRegular, "REG_SZ"
 shell.RegWrite yuGothicLightKey  , yuGothicMediumForLight  , "REG_SZ"
-WScript.Echo("ƒtƒ@ƒCƒ‹ƒRƒs[EƒŒƒWƒXƒgƒŠ•ÏXŠ®—¹")
+WScript.Echo("ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼ãƒ»ãƒ¬ã‚¸ã‚¹ãƒˆãƒªå¤‰æ›´å®Œäº†")
